@@ -3,7 +3,8 @@
 
 /* jshint node: true */
 
-module.exports = function(environment) {
+module.exports = function (environment) {
+  console.log('启动');
   return {
     environment: environment,
     baseURL: '/',
