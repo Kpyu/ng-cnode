@@ -43,4 +43,4 @@ jsconfig.json
 manifest.json
 views/index.html
 tmp/*
-
+logs/*

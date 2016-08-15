@@ -66,7 +66,7 @@ app.use(bodyParser());
 // 注册路由
 // app.use(router);
 // app.use(router.allowedMethods());
-app.listen(300, function () {
+app.listen(3000, function () {
   console.log('Start app listening at http://localhost:%s, environment:%s', 3000, env);
 });
 

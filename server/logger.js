@@ -28,7 +28,7 @@ const bunyanOptions = {
     }, {
       level: 'debug',
       type: 'rotating-file',
-      path: 'build/logger.log',
+      path: 'logs/logger.log',
       period: '1d',
       count: 3
     }
