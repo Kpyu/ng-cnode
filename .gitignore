@@ -42,4 +42,5 @@ jsconfig.json
 .vscode/*
 manifest.json
 views/index.html
-tmp/
+tmp/*
+
