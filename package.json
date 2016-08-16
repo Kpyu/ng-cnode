@@ -6,7 +6,7 @@
   "scripts": {
     "start": "ng serve",
     "serve": "NODE_ENV=development node index",
-    "start-koa": "ng serve -proxy http://127.0.0.1:3000",
+    "start-koa": "ng serve --proxy http://127.0.0.1:3000",
     "postinstall": "typings install",
     "lint": "tslint \"src/**/*.ts\"",
     "test": "ng test",
@@ -35,6 +35,7 @@
     "koa-convert": "^1.2.0",
     "koa-ejs": "^3.0.0",
     "koa-favicon": "^2.0.0",
+    "koa-router": "^7.0.1",
     "koa-static": "^3.0.0",
     "koa-views": "^5.0.2",
     "reflect-metadata": "0.1.3",

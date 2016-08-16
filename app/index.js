@@ -69,4 +69,3 @@ app.use(bodyParser());
 app.listen(3000, function () {
   console.log('Start app listening at http://localhost:%s, environment:%s', 3000, env);
 });
-
