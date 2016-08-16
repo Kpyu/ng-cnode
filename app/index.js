@@ -28,6 +28,7 @@ import render from 'koa-ejs';
 import co from 'co';
 import favicon from 'koa-favicon';
 import logger from './logger';
+import router from './routes';
 const env = process.NODE_ENV || 'development';
 const app = new Koa();
 app.use(convert(bunyanLogger(logger, {
@@ -64,7 +65,7 @@ app.use(serve('./dist'));
 app.use(bodyParser());
 
 // 注册路由
-// app.use(router);
+app.use(router);
 // app.use(router.allowedMethods());
 app.listen(3000, function () {
   console.log('Start app listening at http://localhost:%s, environment:%s', 3000, env);

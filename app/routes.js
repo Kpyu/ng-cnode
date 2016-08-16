@@ -1,7 +1,5 @@
-import { initController } from '../api';
+import { initController } from './api';
+const router = initController();
 
-export default async (ctx, next) => {
-  if (ctx.path.match(/^\/admin/)) {
-    return await initController.routes()(ctx, next);
-  }
-};
+export default async (ctx, next) =>
+  await router.routes()(ctx, next);
