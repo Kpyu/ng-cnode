@@ -1,17 +1,38 @@
-<h1>{{title}}</h1>
-  <h2>{{hero.name}} details!</h2>
-  <div><label>id: </label>{{hero.id}}</div>
-  <div>
-    <label>name: </label>
-    <input [(ngModel)]="hero.name" placeholder="name">
+
+
+<div id="app" :class="{ 'offcanvas-page': isShowSidebar, 'show-offcanvas': isShowSidebar}" >
+    <app-nav-bar></app-nav-bar>
+    <!--<vSidebar :is-show-sidebar.sync="isShowSidebar" :is-show-confirm.sync="isShowConfirm" :is-login.sync="isLogin" :title.sync="title" :avatar_url.sync="avatar_url" :loginname.sync="loginname" :unread-count.sync="unreadCount"></vSidebar>  -->
+    <main>
+      <!--<vheader :title="title" :is-show-sidebar.sync="isShowSidebar" :show.sync="showConfirm"></vheader>-->
+      <div id="content">
+       
+        <!--<router-view :is-show-sidebar.sync="isShowSidebar" :is-login.sync="isLogin" :avatar_url.sync="avatar_url" :loginname.sync="loginname" :accesstoken.sync="accesstoken" :unread-count.sync="unreadCount" keep-alive></router-view>-->
+        <h1>{{title}}</h1>
+          <h2>{{selectedHero.name}} details!</h2>
+          <div><label>id: </label>{{selectedHero.id}}</div>
+          <div>
+            <label>name: </label>
+            <input [(ngModel)]="selectedHero.name" placeholder="name" />
+          </div>
+
+        <h2>My Heroes</h2>
+        <ul class="heroes">
+          <li *ngFor="let hero of heroes"  
+            [class.selected]="hero === selectedHero"
+            (click)="onSelect(hero)"
+          >
+            <span class="badge">{{hero.id}}</span> {{hero.name}}
+          </li>
+        </ul>
+
+
+      </div>
+    </main>
+    <!--<vconfirm :is-show-confirm.sync="isShowConfirm" :is-show-sidebar.sync="isShowSidebar" :is-login.sync="isLogin">
+      <h3 slot="body">确认注销当前账号吗？</h3>
+    </vconfirm>-->
   </div>
 
-<h2>My Heroes</h2>
-<ul class="heroes">
-  <li *ngFor="let hero of heroes"  
-    [class.selected]="hero === selectedHero"
-    (click)="onSelect(hero)"
-  >
-    <span class="badge">{{hero.id}}</span> {{hero.name}}
-  </li>
-</ul>
+
+

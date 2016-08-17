@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-// import { DataServiceService } from './api/data-service.service'
+import { DataServiceService } from './api/data-service.service'
 export class Hero {
   id: number;
   name: string;
@@ -9,13 +9,22 @@ export class Hero {
   moduleId: module.id,
   selector: 'app-root',
   templateUrl: 'app.component.html',
-  styleUrls: ['app.component.css']
+  styleUrls: ['app.component.css'],
+  providers: [DataServiceService]
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   public heroes = HEROES;
   title = 'Tour of Heroes';
   selectedHero: Hero;
   onSelect(hero: Hero) { this.selectedHero = hero; }
+  constructor(private heroSearchService: DataServiceService) { }  
+  ngOnInit() {
+    this.selectedHero = this.heroes[0];
+    // this.heroSearchService.getTopicList()
+    //   .catch(Error => {
+    //     console.log(Error);
+    // })
+  }
 }
 
 const HEROES: Hero[] = [
