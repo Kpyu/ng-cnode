@@ -4,9 +4,9 @@
     <app-nav-bar></app-nav-bar>
     <!--<vSidebar :is-show-sidebar.sync="isShowSidebar" :is-show-confirm.sync="isShowConfirm" :is-login.sync="isLogin" :title.sync="title" :avatar_url.sync="avatar_url" :loginname.sync="loginname" :unread-count.sync="unreadCount"></vSidebar>  -->
     <main>
+      <app-header-bar></app-header-bar>
       <!--<vheader :title="title" :is-show-sidebar.sync="isShowSidebar" :show.sync="showConfirm"></vheader>-->
       <div id="content">
-       
         <!--<router-view :is-show-sidebar.sync="isShowSidebar" :is-login.sync="isLogin" :avatar_url.sync="avatar_url" :loginname.sync="loginname" :accesstoken.sync="accesstoken" :unread-count.sync="unreadCount" keep-alive></router-view>-->
         <h1>{{title}}</h1>
           <h2>{{selectedHero.name}} details!</h2>
@@ -25,7 +25,7 @@
             <span class="badge">{{hero.id}}</span> {{hero.name}}
           </li>
         </ul>
-
+        <router-outlet></router-outlet> 
 
       </div>
     </main>

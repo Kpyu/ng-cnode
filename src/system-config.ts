@@ -39,6 +39,7 @@ const barrels: string[] = [
   'app/menu',
   'app/nav-bar',
   'app/header-bar',
+  'app/view/view-list',
   /** @cli-barrel */
 ];
 
