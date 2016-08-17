@@ -52,10 +52,11 @@ export class DataServiceService {
   getMessage() {
 
   }
-  unreadCount() {
-
+  unreadCount(accesstoken:string): Promise<any> {
+    return this.http.get(`${this.apiUrl}message/count?accesstoken=${accesstoken}`)
+      .toPromise()
   }
   markAll() {
-
+  
   }
 }

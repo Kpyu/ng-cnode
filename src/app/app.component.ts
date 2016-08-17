@@ -14,16 +14,35 @@ export class Hero {
 })
 export class AppComponent implements OnInit {
   public heroes = HEROES;
+  public isShowNavbar: boolean = false;
+  public isShowConfirm: boolean = false;
+  private accesstoken: string;
+  
   title = 'Tour of Heroes';
+  
+  
+  
   selectedHero: Hero;
+  
+  
+  
   onSelect(hero: Hero) { this.selectedHero = hero; }
-  constructor(private heroSearchService: DataServiceService) { }  
+
+  showConfirm() {
+    this.isShowConfirm = !this.isShowConfirm;
+  }  
+  
+  getUnreadCount() {
+    this.apiService.unreadCount( this.accesstoken)
+  }
+
+  constructor(private apiService: DataServiceService) { }  
   ngOnInit() {
     this.selectedHero = this.heroes[0];
-    // this.heroSearchService.getTopicList()
-    //   .catch(Error => {
-    //     console.log(Error);
-    // })
+    this.apiService.getTopicList()
+      .catch(Error => {
+        console.log(Error);
+    })
   }
 }
 
