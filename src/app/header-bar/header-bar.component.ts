@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   moduleId: module.id,
@@ -8,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderBarComponent implements OnInit {
 
+  @Input() isShowNavbar: boolean;
+  @Output() onToggle = new EventEmitter<boolean>();
   constructor() { }
 
   ngOnInit() {
+  }
+  navbarToggle() {
+    this.isShowNavbar = true;
+    this.onToggle.emit(true);
+    console.log(this.isShowNavbar)
   }
 
 }

@@ -7,6 +7,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['nav-bar.component.css']
 })
 export class NavBarComponent implements OnInit {
+  public navSet: Array<any> = NAVS.navSet;
+
+  public currentNav: string = NAVS.nav;
+
 
   constructor() { }
 

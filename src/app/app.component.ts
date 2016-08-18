@@ -31,7 +31,13 @@ export class AppComponent implements OnInit {
   showConfirm() {
     this.isShowConfirm = !this.isShowConfirm;
   }  
-  
+  /**
+   * 监听头部点击
+   * @param {boolean} toggle
+   */
+  onToggle(toggle:boolean) {
+    this.isShowNavbar = toggle;
+  }
   getUnreadCount() {
     this.apiService.unreadCount( this.accesstoken)
   }
