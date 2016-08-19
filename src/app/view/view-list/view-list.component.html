@@ -1,3 +1,26 @@
-<p>
-  view-list works!
-</p>
+	<div class="topic-list" :is-show-sidebar.sync="false">
+		<ul>
+			<li *ngFor="let topic of topics" class="good">
+				<h3 class="title">
+          <span class="tab"></span>
+          {{topic.title}}
+        </h3>
+				<div class="info">
+					<div class="right">
+						<p><strong title="回复数">{{topic.reply_count}}</strong> / <span title="阅读数">{{topic.visit_count}}</span></p>
+						<p class="latest_reply_time"></p>
+					</div>
+
+          <div class="userPanel">
+            <img [src]="topic.author.avatar_url" alt="">
+            <div>
+              <p>{{topic.author}}</p>
+              <p>{{topic.create_at}}</p>
+            </div>
+          </div>
+				</div>
+			</li>
+		</ul>
+	</div>
+	<button v-if="!isFirstLoad" type="button" class="loadMoreBtn"></button>
+  <!--: (topic.tab || 'unknow')-->

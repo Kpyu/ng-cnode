@@ -16,7 +16,7 @@
       <app-header-bar [isShowNavbar]="isShowNavbar" (onToggle)="onToggle($event)"></app-header-bar>
       <div id="content">
         <!--<router-view :is-show-sidebar.sync="isShowSidebar" :is-login.sync="isLogin" :avatar_url.sync="avatar_url" :loginname.sync="loginname" :accesstoken.sync="accesstoken" :unread-count.sync="unreadCount" keep-alive></router-view>-->
-        <h1>{{title}}</h1>
+        <!--<h1>{{title}}</h1>
           <h2>{{selectedHero.name}} details!</h2>
           <div><label>id: </label>{{selectedHero.id}}</div>
           <div>
@@ -32,7 +32,7 @@
           >
             <span class="badge">{{hero.id}}</span> {{hero.name}}
           </li>
-        </ul>
+        </ul>-->
         <router-outlet></router-outlet> 
 
       </div>

@@ -45,10 +45,10 @@ export class AppComponent implements OnInit {
   constructor(private apiService: DataServiceService) { }  
   ngOnInit() {
     this.selectedHero = this.heroes[0];
-    this.apiService.getTopicList()
-      .catch(Error => {
-        console.log(Error);
-    })
+    // this.apiService.getTopicList()
+    //   .catch(Error => {
+    //     console.log(Error);
+    // })
   }
 }
 

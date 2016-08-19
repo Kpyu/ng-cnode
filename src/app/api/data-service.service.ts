@@ -4,23 +4,14 @@ import 'rxjs/add/operator/toPromise';
 
 @Injectable()
 export class DataServiceService {
-  private apiUrl = 'https://cnodejs.org/api/v1/';  // URL to web api
+  private apiUrl:string = 'https://cnodejs.org/api/v1/';  // URL to web api
   constructor(private http: Http) { }
 
   handleError(error) {
     console.error(error);
   }
-  getTopicList() {
-    return this.http.get(`${this.apiUrl}topics`)
-      .toPromise()
-      .then(response => {
-        console.log(response.json());
-      })
-      .catch(this.handleError);
-    // return this.http.get(this.heroesUrl)
-    //   .toPromise()
-    //   .then(response => { console.log(response.json().data); return response.json().data })
-    //   .catch(this.handleError);
+  getTopicList(): Promise<any>{
+    return this.http.get(`${this.apiUrl}topics`).toPromise();
   }
   getTopic() {
 
