@@ -17,32 +17,32 @@ export class AppComponent implements OnInit {
   public isShowNavbar: boolean = false;
   public isShowConfirm: boolean = false;
   private accesstoken: string;
-  
+
   title = 'Tour of Heroes';
-  
-  
-  
+
+
+
   selectedHero: Hero;
-  
-  
-  
+
+
+
   onSelect(hero: Hero) { this.selectedHero = hero; }
 
   showConfirm() {
     this.isShowConfirm = !this.isShowConfirm;
-  }  
+  }
   /**
    * 监听头部点击
    * @param {boolean} toggle
    */
-  onToggle(toggle:boolean) {
+  onToggle(toggle: boolean) {
     this.isShowNavbar = toggle;
   }
   getUnreadCount() {
-    this.apiService.unreadCount( this.accesstoken)
+    this.apiService.unreadCount(this.accesstoken)
   }
 
-  constructor(private apiService: DataServiceService) { }  
+  constructor(private apiService: DataServiceService) { }
   ngOnInit() {
     this.selectedHero = this.heroes[0];
     // this.apiService.getTopicList()
