@@ -6,7 +6,7 @@ import { NavBarComponent }  from './nav-bar';
 import { HeaderBarComponent } from './header-bar'
 import { HttpModule }     from '@angular/http';
 import { routing }        from './app.routing';
-
+import { ArticleTypePipe } from './view/pipes/article-type.pipe'
 import { DataServiceService }  from './api/data-service.service';
 
 @NgModule({
@@ -17,10 +17,10 @@ import { DataServiceService }  from './api/data-service.service';
     HttpModule
   ],
   declarations: [
-    //多个组件
+    ArticleTypePipe,
     NavBarComponent,
     HeaderBarComponent,
-    AppComponent
+    AppComponent,
   ],
   providers: [
     DataServiceService

@@ -1,8 +1,8 @@
 	<div class="topic-list" :is-show-sidebar.sync="false">
 		<ul>
-			<li *ngFor="let topic of topics" class="good">
+			<li *ngFor="let topic of topics" class="{{topic.good? 'top':(topic.tab||'unknown')}}">
 				<h3 class="title">
-          <span class="tab"></span>
+          <span class="tab">{{topic|articleType}}</span>
           {{topic.title}}
         </h3>
 				<div class="info">
@@ -12,10 +12,10 @@
 					</div>
 
           <div class="userPanel">
-            <img [src]="topic.author.avatar_url" alt="">
+            <img  *ngIf="topic.author" [src]="topic.author.avatar_url" alt=""/>
             <div>
-              <p>{{topic.author}}</p>
-              <p>{{topic.create_at}}</p>
+              <p  *ngIf="topic.author">{{topic.author.loginname}}</p>
+              <p>{{topic.create_at | date:'yyyy-MM-dd hh:mm:ss'}}</p>
             </div>
           </div>
 				</div>
