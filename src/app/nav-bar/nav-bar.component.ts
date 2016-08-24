@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { ActivatedRoute, Params } from '@angular/router';
 
 @Component({
   moduleId: module.id,
@@ -14,9 +15,12 @@ export class NavBarComponent implements OnInit {
 
   @Input() isShowNavbar: boolean;
   @Output() onToggle = new EventEmitter<boolean>();
-  constructor() { }
+  constructor(private route: ActivatedRoute) { }
   
   ngOnInit() {
+  }
+  navigatorTo() {
+    
   }
   hide() {
     this.isShowNavbar = false;

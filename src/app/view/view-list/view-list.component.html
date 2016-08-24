@@ -1,6 +1,6 @@
-	<div class="topic-list" :is-show-sidebar.sync="false">
-		<ul>
-			<li *ngFor="let topic of topics" class="{{topic.good? 'top':(topic.tab||'unknown')}}">
+<div class="topic-list" :is-show-sidebar.sync="false">
+	<ul>
+		<li *ngFor="let topic of topics" class="{{topic.good? 'top':(topic.tab||'unknown')}}" [routerLink]="['/topic',topic.id]">
 				<h3 class="title">
           <span class="tab">{{topic|articleType}}</span>
           {{topic.title}}
@@ -11,16 +11,16 @@
 						<p class="latest_reply_time"></p>
 					</div>
 
-          <div class="userPanel">
-            <img  *ngIf="topic.author" [src]="topic.author.avatar_url" alt=""/>
-            <div>
-              <p  *ngIf="topic.author">{{topic.author.loginname}}</p>
-              <p>{{topic.create_at | date:'yyyy-MM-dd hh:mm:ss'}}</p>
-            </div>
-          </div>
+					<div class="userPanel">
+						<img *ngIf="topic.author" [src]="topic.author.avatar_url" alt="" />
+						<div>
+							<p [routerLink]="['/perinfo', topic.author.loginname]" *ngIf="topic.author">{{topic.author.loginname}}</p>
+							<p>{{topic.create_at | date:'yyyy-MM-dd hh:mm:ss'}}</p>
+						</div>
+					</div>
 				</div>
-			</li>
-		</ul>
-	</div>
-	<button v-if="!isFirstLoad" type="button" class="loadMoreBtn"></button>
-  <!--: (topic.tab || 'unknow')-->
+		</li>
+	</ul>
+</div>
+<button v-if="!isFirstLoad" type="button" class="loadMoreBtn"></button>
+<!--: (topic.tab || 'unknow')-->

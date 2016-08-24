@@ -10,15 +10,21 @@ import { MessageViewComponent } from './view/message-view';
 const appRoutes: Routes = [
   {
     path: '',
-    component: ViewListComponent
+    redirectTo: '/list/all',
+    pathMatch: 'full'
   },
   {
     path: 'list',
+    redirectTo: '/list/all',
+    pathMatch: 'full'
+  },
+  {
+    path: 'list/:tab',
     component: ViewListComponent
   },
   {
     path: 'topic/:id',
-    component: TopicNewViewComponent
+    component: TopicViewComponent
   },
   {
     path: 'message',
