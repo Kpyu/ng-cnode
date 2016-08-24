@@ -2,7 +2,7 @@
 
 <div id="app" [ngClass]="{ 'offcanvas-page': isShowNavbar,
                            'show-offcanvas': isShowNavbar}">
-    <app-nav-bar ></app-nav-bar>
+    <app-nav-bar [isShowNavbar]="isShowNavbar" (onToggle)="onToggle($event)"></app-nav-bar>
     <!--<vSidebar 
     :is-show-sidebar.sync="isShowSidebar" 
     :is-show-confirm.sync="isShowConfirm" 

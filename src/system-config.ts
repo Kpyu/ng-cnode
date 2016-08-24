@@ -40,6 +40,11 @@ const barrels: string[] = [
   'app/nav-bar',
   'app/header-bar',
   'app/view/view-list',
+  'app/view/about-view',
+  'app/view/login-view',
+  'app/view/topic-view',
+  'app/view/topic-new-view',
+  'app/view/personal-info-view',
   /** @cli-barrel */
 ];
 

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   moduleId: module.id,
@@ -10,13 +10,18 @@ export class NavBarComponent implements OnInit {
   public navSet: Array<any> = NAVS.navSet;
 
   public currentNav: string = NAVS.nav;
+  
 
-
+  @Input() isShowNavbar: boolean;
+  @Output() onToggle = new EventEmitter<boolean>();
   constructor() { }
-
+  
   ngOnInit() {
   }
-
+  hide() {
+    this.isShowNavbar = false;
+    this.onToggle.emit(false);
+  }
 }
 
 const NAVS: any  = {
