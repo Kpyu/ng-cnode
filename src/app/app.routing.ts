@@ -1,5 +1,11 @@
 import { Routes, RouterModule } from '@angular/router';
-import { ViewListComponent } from './view/view-list'
+import { ViewListComponent } from './view/view-list';
+import { AboutViewComponent } from './view/about-view';
+import { LoginViewComponent } from './view/login-view';
+import { PersonalInfoViewComponent } from './view/personal-info-view';
+import { TopicViewComponent } from './view/topic-view';
+import { TopicNewViewComponent } from './view/topic-new-view';
+import { MessageViewComponent } from './view/message-view';
 
 const appRoutes: Routes = [
   {
@@ -12,27 +18,27 @@ const appRoutes: Routes = [
   },
   {
     path: 'topic/:id',
-    component: ViewListComponent
+    component: TopicNewViewComponent
   },
   {
     path: 'message',
-    component: ViewListComponent
+    component: MessageViewComponent
   },
   {
     path: 'about',
-    component: ViewListComponent
+    component: AboutViewComponent
   },
   {
     path: 'perinfo/:loginname',
-    component: ViewListComponent
+    component: PersonalInfoViewComponent
   },
   {
     path: 'login',
-    component: ViewListComponent
+    component: LoginViewComponent
   },
   {
     path: 'newtopic',
-    component: ViewListComponent
+    component: TopicNewViewComponent
   }
 ];
 export const routing:any = RouterModule.forRoot(appRoutes);
