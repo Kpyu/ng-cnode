@@ -10,17 +10,12 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
 export class HeaderBarComponent implements OnInit {
 
   @Input() isShowNavbar: boolean;
-  @Input() tab: string;
+  @Input() title: string;
   @Output() onToggle = new EventEmitter<boolean>();
   constructor(private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
-    console.log(this.router)
-    debugger;
-    this.route.params.subscribe((params: Params) => {
-      // debugger;
-      console.log(params['tab']);
-    });
+    
   }
   navbarToggle() {
     this.isShowNavbar = true;

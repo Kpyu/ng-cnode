@@ -9,7 +9,7 @@
       </div>
       <ul *ngFor="let items of navSet">
       	<li *ngFor="let item of items" [ngClass]="{'active': item.tab == currentNav, 'tab': item.tab, 'unread': (item.view === 'message')}">
-      		<a href="javascript:;" [routerLink]="['/'+item.view, item.tab]">
+      		<a href="javascript:;" [routerLink]="['/'+item.view, item.tab]" (click)="navigatorTo($event, item.tab)">
       			<i class="iconfont" [innerHTML]="item.icon"></i>
 	      		<span>{{item.name}}</span>
             <span class="unreadTip" v-if="item.view==='message' && unreadCount !== 0">  </span>

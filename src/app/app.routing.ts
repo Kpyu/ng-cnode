@@ -14,11 +14,6 @@ const appRoutes: Routes = [
     pathMatch: 'full'
   },
   {
-    path: 'list',
-    redirectTo: '/list/all',
-    pathMatch: 'full'
-  },
-  {
     path: 'list/:tab',
     component: ViewListComponent
   },

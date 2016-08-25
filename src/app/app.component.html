@@ -2,7 +2,7 @@
 
 <div id="app" [ngClass]="{ 'offcanvas-page': isShowNavbar,
                            'show-offcanvas': isShowNavbar}">
-    <app-nav-bar [isShowNavbar]="isShowNavbar" (onToggle)="onToggle($event)"></app-nav-bar>
+    <app-nav-bar [isShowNavbar]="isShowNavbar" (onNavigate)="onNavigate($event)" (onToggle)="onToggle($event)"></app-nav-bar>
     <!--<vSidebar 
     :is-show-sidebar.sync="isShowSidebar" 
     :is-show-confirm.sync="isShowConfirm" 
@@ -13,7 +13,7 @@
     :unread-count.sync="unreadCount"
     ></vSidebar>  -->
     <main>
-      <app-header-bar [isShowNavbar]="isShowNavbar" (onToggle)="onToggle($event)"></app-header-bar>
+      <app-header-bar [isShowNavbar]="isShowNavbar" [title]="title"  (onToggle)="onToggle($event)"></app-header-bar>
       <div id="content">
         <!--<router-view :is-show-sidebar.sync="isShowSidebar" :is-login.sync="isLogin" :avatar_url.sync="avatar_url" :loginname.sync="loginname" :accesstoken.sync="accesstoken" :unread-count.sync="unreadCount" keep-alive></router-view>-->
         <!--<h1>{{title}}</h1>

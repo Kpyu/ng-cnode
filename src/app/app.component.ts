@@ -17,8 +17,7 @@ export class AppComponent implements OnInit {
   public isShowNavbar: boolean = false;
   public isShowConfirm: boolean = false;
   private accesstoken: string;
-
-  title = 'Tour of Heroes';
+  public title:string = '全部';
 
 
 
@@ -37,6 +36,9 @@ export class AppComponent implements OnInit {
    */
   onToggle(toggle: boolean) {
     this.isShowNavbar = toggle;
+  }
+  onNavigate(tab: string) {
+    this.title = tab;
   }
   getUnreadCount() {
     this.apiService.unreadCount(this.accesstoken)

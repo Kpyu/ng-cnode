@@ -15,12 +15,49 @@ export class NavBarComponent implements OnInit {
 
   @Input() isShowNavbar: boolean;
   @Output() onToggle = new EventEmitter<boolean>();
+  @Output() onNavigate = new EventEmitter<string>();
   constructor(private route: ActivatedRoute) { }
   
   ngOnInit() {
   }
-  navigatorTo() {
-    
+  navigatorTo($event,tab) {
+    let title: string ='';
+    $event.stopPropagation();
+    this.isShowNavbar = false;
+    this.onToggle.emit(false);
+    switch (tab) {
+      case 'all':
+        title = '全部';
+        break;
+      case 'good':
+        title = '精华';
+        break;
+      case 'share':
+        title = '分享';
+        break;
+      case 'ask':
+        title = '问答';
+        break;
+      case 'job':
+        title = '招聘';
+        break;
+      case 'message':
+        title = '消息';
+        break;
+      case 'about':
+        title = '关于';
+        break;
+      case 'perinfo':
+        title = '个人信息';
+        break;
+      case 'newtopic':
+        title = '发帖';
+        break;
+      default:
+        title = '全部';
+        break;
+    }
+    this.onNavigate.emit(title);
   }
   hide() {
     this.isShowNavbar = false;
