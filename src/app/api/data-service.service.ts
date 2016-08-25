@@ -10,8 +10,9 @@ export class DataServiceService {
   handleError(error) {
     console.error(error);
   }
-  getTopicList(): Promise<any>{
-    return this.http.get(`${this.apiUrl}topics`).toPromise();
+  getTopicList(params:any): Promise<any>{
+    return this.http.get(`${this.apiUrl}topics?page=${params.page}
+      &limit=${params.limit}&tab=${params.tab}&mdrender=${params.mdrender}`).toPromise();
   }
   getTopic() {
 
