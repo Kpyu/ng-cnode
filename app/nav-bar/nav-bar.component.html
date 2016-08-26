@@ -1,0 +1,25 @@
+<div class="offcanvas" (click)="hide()">
+    <nav class="offcanvas-bar">
+      <div class="user">
+        <div v-if="isLogin">
+          <!--<img src="#" alt="">-->
+          <p>Jchehe</p>
+        </div>
+        <a v-else class="login"><i class="iconfont">&#xe604;</i>登录</a>
+      </div>
+      <ul *ngFor="let items of navSet">
+      	<li *ngFor="let item of items" [ngClass]="{'active': item.tab == currentNav, 'tab': item.tab, 'unread': (item.view === 'message')}">
+      		<a href="javascript:;" [routerLink]="['/'+item.view, item.tab]" (click)="navigatorTo($event, item.tab)">
+      			<i class="iconfont" [innerHTML]="item.icon"></i>
+	      		<span>{{item.name}}</span>
+            <span class="unreadTip" v-if="item.view==='message' && unreadCount !== 0">  </span>
+      		</a>
+      	</li>
+        <li v-if="isLogin && index==itemSet.length -1"><a><i class="iconfont">&#xe60d;</i> 注销</a></li>
+      </ul>
+      <div class="logo">
+        <img src="//o4j806krb.qnssl.com/public/images/cnodejs_light.svg" alt="">
+      </div>
+    </nav>
+  </div>
+   <!--v-link="{path: '/'+item.view, query:{'tab': item.tab}}"-->
