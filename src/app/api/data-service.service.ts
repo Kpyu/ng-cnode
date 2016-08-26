@@ -12,7 +12,7 @@ export class DataServiceService {
   }
   getTopicList(params:any): Promise<any>{
     return this.http.get(`${this.apiUrl}topics?page=${params.page}
-      &limit=${params.limit}&tab=${params.tab}&mdrender=${params.mdrender}`).toPromise();
+      &limit=${params.limit}&tab=${params.tab}&mdrender=${params.mdrender||''}`).toPromise();
   }
   getTopic() {
 

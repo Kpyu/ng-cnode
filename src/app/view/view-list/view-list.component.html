@@ -22,5 +22,5 @@
 		</li>
 	</ul>
 </div>
-<button v-if="!isFirstLoad" type="button" class="loadMoreBtn"></button>
-<!--: (topic.tab || 'unknow')-->
+<button *ngIf="!isFirstLoad&&!isOverLoaded" (click)="loadMore($event)" type="button" class="loadMoreBtn">{{isLoading ? "正在加载" :"加载更多"}}</button>
+<div *ngIf="isOverLoaded" style="text-align:center">没有更多内容了</div>

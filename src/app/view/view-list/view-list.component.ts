@@ -12,6 +12,11 @@ import { Subscription } from 'rxjs/Subscription';
 export class ViewListComponent implements OnInit {
   public topics: Array<any> = [{}];
   public sub: Subscription;
+  public isFirstLoad: boolean = true;
+  public isOverLoaded: boolean = false;
+  public currentPage;
+  public isLoading: boolean = false;
+
   constructor(
     private api: DataServiceService,
     private route: ActivatedRoute,
@@ -19,18 +24,45 @@ export class ViewListComponent implements OnInit {
   
   ngOnInit() {
     const self = this;
+    self.isFirstLoad = false;
     this.sub = this.route.params.subscribe(params => {
-      let tab = params['tab']; // (+) converts string 'id' to a number
+      self.isOverLoaded = false;
+      self.currentPage = 1;
+      let tab = params['tab']; 
       self.api.getTopicList({
-          page: 1,
+          page: self.currentPage,
 					tab: tab,
 					limit: 40,
-          mdrender: {}
       })
         .then(function (result) {
           self.topics = result.json().data;
+          if(self.topics.length<40){
+            self.isOverLoaded = true;
+          }
+          self.isFirstLoad = false;
       })
    });
-   
+  }
+  ngOnDestroy() {
+    this.sub.unsubscribe();
+  }
+  loadMore(){
+    const self = this;
+    let tab = this.route.snapshot.params['tab']; 
+    if(!this.isLoading){
+      this.isLoading = true;
+      self.api.getTopicList({
+          page: ++self.currentPage,
+          tab: tab,
+          limit: 40,
+      })
+        .then(function (result) {
+          self.isLoading = false;
+          if(result.json().data.length<40){
+            self.isOverLoaded = true;
+          }
+          self.topics = self.topics.concat(result.json().data);
+      })
+    }
   }
 }
