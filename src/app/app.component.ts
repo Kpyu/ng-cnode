@@ -15,6 +15,7 @@ export class Hero {
 export class AppComponent implements OnInit {
   public isShowNavbar: boolean = false;
   public isShowConfirm: boolean = false;
+  public isLogin: boolean;
   private accesstoken: string;
   public title:string = '全部';
 

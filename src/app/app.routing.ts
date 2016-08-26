@@ -27,6 +27,7 @@ const appRoutes: Routes = [
   },
   {
     path: 'about',
+    pathMatch: 'full',
     component: AboutViewComponent
   },
   {
@@ -35,10 +36,12 @@ const appRoutes: Routes = [
   },
   {
     path: 'login',
+    pathMatch: 'prefix',
     component: LoginViewComponent
   },
   {
     path: 'newtopic',
+    pathMatch: 'prefix',
     component: TopicNewViewComponent
   }
 ];

@@ -14,6 +14,7 @@ export class NavBarComponent implements OnInit {
   
 
   @Input() isShowNavbar: boolean;
+  @Input() isLogin: boolean;
   @Output() onToggle = new EventEmitter<boolean>();
   @Output() onNavigate = new EventEmitter<string>();
   constructor(private route: ActivatedRoute) { }
@@ -97,6 +98,7 @@ const NAVS: any  = {
       }],
     [{
       icon: '&#xe607;',
+      accessToken: true,
       name: '消息',
       view: 'message'
     }, {
@@ -107,10 +109,12 @@ const NAVS: any  = {
     [{
       icon: '&#xe608;',
       name: '个人信息',
+      accessToken: true,
       view: 'perinfo'
     }, {
         icon: '&#xe608;',
         name: '发帖',
+        accessToken: true,
         view: 'newtopic'
       }]]
 }

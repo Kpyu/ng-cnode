@@ -1,7 +1,11 @@
 # NgNoder
 
 This project was generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.10.
-[demo link](https://kpyu.github.io/ng-noder/)
+
+---
+
+访问地址：https://kpyu.github.io/ng-noder/ [demo link](https://kpyu.github.io/ng-noder/)
+
 ## Development server
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
