@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 
 @Component({
   moduleId: module.id,
@@ -7,10 +8,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['login-view.component.css']
 })
 export class LoginViewComponent implements OnInit {
-
+  @Output() onNavigate = new EventEmitter<string>();
   constructor() { }
 
   ngOnInit() {
+    debugger
+    this.onNavigate.emit('登录');
   }
 
 }

@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 
 @Component({
   moduleId: module.id,
@@ -17,12 +17,17 @@ export class NavBarComponent implements OnInit {
   @Input() isLogin: boolean;
   @Output() onToggle = new EventEmitter<boolean>();
   @Output() onNavigate = new EventEmitter<string>();
-  constructor(private route: ActivatedRoute) { }
+  constructor(private router: Router,
+    private route: ActivatedRoute
+  ) { }
   
   ngOnInit() {
+    // let tab = this.route.toString(); 
+    // debugger
   }
   navigatorTo($event,tab) {
-    let title: string ='';
+    let title: string = '';
+    debugger;
     $event.stopPropagation();
     this.isShowNavbar = false;
     this.onToggle.emit(false);
@@ -59,6 +64,13 @@ export class NavBarComponent implements OnInit {
         break;
     }
     this.onNavigate.emit(title);
+  }
+  login($event) {
+    // accessToken   af708afd-582b-4139-b06f-4cc65c7e67ef
+    $event.stopPropagation();
+    this.router.navigate(['/login']);
+    this.onNavigate.emit('登录');
+    this.onToggle.emit(false);
   }
   hide() {
     this.isShowNavbar = false;

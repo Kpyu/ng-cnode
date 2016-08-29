@@ -30,6 +30,7 @@ export class AppComponent implements OnInit {
     this.isShowNavbar = toggle;
   }
   onNavigate(tab: string) {
+    debugger;
     this.title = tab;
   }
   getUnreadCount() {

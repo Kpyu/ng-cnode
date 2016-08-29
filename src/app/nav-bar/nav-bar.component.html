@@ -5,7 +5,7 @@
           <img [src]="avatarUrl" alt="">
           <p>{{loginname}}</p>
         </div>
-        <a *ngIf="!isLogin" class="login"><i class="iconfont">&#xe604;</i>登录</a>
+        <a *ngIf="!isLogin" class="login" (click)="login($event)"  style="cursor:pointer"><i class="iconfont">&#xe604;</i>登录</a>
       </div>
       <ul *ngFor="let items of navSet;let i=index">
         <template ngFor let-item [ngForOf]="items">
@@ -18,7 +18,7 @@
                 <span>{{item.name}}</span>
                 <span class="unreadTip" *ngIf="item.view==='message' && unreadCount !== 0">  </span>
               </a>
-              <a *ngIf="!item.tab" href="javascript:;" [routerLink]="['/'+item.view]" (click)="navigatorTo($event, item.tab)">
+              <a *ngIf="!item.tab" href="javascript:;" [routerLink]="['/'+item.view]" (click)="navigatorTo($event, item.view)">
                 <i class="iconfont" [innerHTML]="item.icon"></i>
                 <span>{{item.name}}</span>
                 <span class="unreadTip" *ngIf="item.view==='message' && unreadCount !== 0">  </span>
