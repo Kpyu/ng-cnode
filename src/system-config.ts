@@ -46,6 +46,7 @@ const barrels: string[] = [
   'app/view/topic-new-view',
   'app/view/personal-info-view',
   'app/view/message-view',
+  'app/view/topic-view/reply-list',
   /** @cli-barrel */
 ];
 

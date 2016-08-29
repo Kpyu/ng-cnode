@@ -27,7 +27,6 @@ export class NavBarComponent implements OnInit {
   }
   navigatorTo($event,tab) {
     let title: string = '';
-    debugger;
     $event.stopPropagation();
     this.isShowNavbar = false;
     this.onToggle.emit(false);

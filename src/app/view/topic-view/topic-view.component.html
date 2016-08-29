@@ -1,3 +1,23 @@
-<p>
-  topic-view works!
-</p>
+<div>
+    <div class="topic-header">
+    	<h3>topic.title</h3>
+      <div class="right">
+        <p class="tab top">tabToName(topic.tab)</p>
+        <p>topic.visit_count次浏览</p>
+      </div>
+      <!--<vuserpanel :avatar="topic.author.avatar_url">
+        <p slot="one">{{topic.author.loginname}}</p>
+        <p slot="two">发布时间：{{topic.create_at | getLastTimeStr true}}</p>
+      </vuserpanel>-->
+    </div>
+    <div class="topic-content">
+      topic.content
+    </div>
+    <!--<vreplylist replies="topic.replies" topic-id="topic.id" :accesstoken="accesstoken" :loginname="loginname"></vreplylist>-->
+    <div>
+      <form class="reply-form">
+        <textarea></textarea>
+        <button type="submit">回复</button>
+      </form>
+    </div>
+  </div>

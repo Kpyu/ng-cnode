@@ -12,6 +12,7 @@ import { Subscription } from 'rxjs/Subscription';
 export class ViewListComponent implements OnInit {
   public topics: Array<any> = [{}];
   public sub: Subscription;
+  public tab: string;
   public isFirstLoad: boolean = true;
   public isOverLoaded: boolean = false;
   public currentPage;
@@ -28,7 +29,8 @@ export class ViewListComponent implements OnInit {
     this.sub = this.route.params.subscribe(params => {
       self.isOverLoaded = false;
       self.currentPage = 1;
-      let tab = params['tab']; 
+      let tab = params['tab'];
+      self.tab = tab; 
       self.api.getTopicList({
           page: self.currentPage,
 					tab: tab,

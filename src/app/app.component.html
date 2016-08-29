@@ -6,7 +6,7 @@
     <main>
       <app-header-bar [isShowNavbar]="isShowNavbar" [title]="title"  (onToggle)="onToggle($event)"></app-header-bar>
       <div id="content">
-        <router-outlet></router-outlet> 
+        <router-outlet  (activate)="onActivate($event)"></router-outlet> 
       </div>
     </main>
     <!--<vconfirm :is-show-confirm.sync="isShowConfirm" :is-show-sidebar.sync="isShowSidebar" :is-login.sync="isLogin">
