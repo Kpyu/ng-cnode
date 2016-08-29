@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { DataServiceService } from './api/data-service.service'
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { DataServiceService } from './api/data-service.service';
+import { Subscription }   from 'rxjs/Subscription';
 export class Hero {
   id: number;
   name: string;
@@ -12,13 +13,13 @@ export class Hero {
   styleUrls: ['app.component.css'],
   providers: [DataServiceService]
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, OnDestroy {
   public isShowNavbar: boolean = false;
   public isShowConfirm: boolean = false;
   public isLogin: boolean;
   private accesstoken: string;
   public title: string = '全部';
-
+  subscription: Subscription;
   showConfirm() {
     this.isShowConfirm = !this.isShowConfirm;
   }
@@ -75,8 +76,20 @@ export class AppComponent implements OnInit {
     this.apiService.unreadCount(this.accesstoken)
   }
 
-  constructor(private apiService: DataServiceService) { }
+  constructor(private apiService: DataServiceService) {
+    // this.subscription =  apiService.title$.subscribe( result=>{
+    //   debugger
+    //   console.log(result);
+    // })
+  }
   ngOnInit() {
-
+    const self:AppComponent = this;
+    this.subscription =  this.apiService.title$.subscribe( result=>{
+      console.log(result);
+      self.title = result;
+    })
+  }
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
   }
 }
