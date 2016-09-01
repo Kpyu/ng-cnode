@@ -12,7 +12,6 @@ export class DataServiceService {
   public titleSource;
   public title$;
     // Observable string streams
-  
   constructor(private http: Http) { 
     console.log('调用api服务');
     this.titleSource = sub;
@@ -30,41 +29,61 @@ export class DataServiceService {
     return this.http.get(`${this.apiUrl}topics?page=${params.page}
       &limit=${params.limit}&tab=${params.tab}&mdrender=${params.mdrender||''}`).toPromise();
   }
-  getTopic(topicId:string) : Promise<any>{
-    return this.http.get(`${this.apiUrl}topic/${topicId}`).toPromise();
+  getTopic(params:any) : Promise<any>{
+    return this.http.get(`${this.apiUrl}topic/${params.topicId}?mdrender=${params.mdrender || ''}
+    ?accesstoken=${params.accesstoken}`).toPromise();
   }
-  newTopic() {
-
+  newTopic(params: any) : Promise<any> {
+    return this.http.post(`${this.apiUrl}topics`, {
+      accesstoken: params.accesstoken,
+      title: params.title,
+      tab: params.tab, // only ask\share\job
+      content: params.content,
+    }).toPromise();
   }
-  topicCollect() {
-
+  topicCollect(params): Promise<any> {
+    return this.http.get(`${this.apiUrl}topic_collect/collect?topic_id=${params.topic_id}
+     &accesstoken=${params.accesstoken||''}`).toPromise();
   }
-  topicDeCollect() {
-
+  topicDeCollect(params): Promise<any> {
+    return this.http.post(`${this.apiUrl}topic_collect/de_collect`, {
+      accesstoken: params.accesstoken,
+      topic_id: params.topic_id
+    }).toPromise();
   }
-  getUserCollect() {
-
+  getUserCollect(params): Promise<any> {
+    return this.http.get(`${this.apiUrl}topic_collect/${params.loginname}`).toPromise();
   }
-  newReply() {
-
+  newReply(params): Promise<any> {
+    return this.http.post(`${this.apiUrl}topic/${params.topic_id}/replies`, {
+      accesstoken: params.accesstoken,
+      content: params.content,
+      reply_id: params.reply_id
+    }).toPromise();
   }
-  ups() {
-
+  ups(params): Promise<any> {
+     return this.http.post(`${this.apiUrl}topic/${params.topic_id}/ups`, {
+      accesstoken: params.accesstoken
+    }).toPromise();
   }
-  getUserInfo() {
-
+  getUserInfo(params): Promise<any> {
+    return this.http.get(`${this.apiUrl}user/${params.loginname}`).toPromise();
   }
-  validateAccessToken() {
-
+  validateAccessToken(params): Promise<any> {
+     return this.http.post(`${this.apiUrl}topic/${params.topic_id}/ups`, {
+      accesstoken: params.accesstoken
+    }).toPromise();
   }
-  getMessage() {
-
+  getMessage(params): Promise<any> {
+    return this.http.get(`${this.apiUrl}topic_collect/${params.loginname}`).toPromise();
   }
   unreadCount(accesstoken:string): Promise<any> {
     return this.http.get(`${this.apiUrl}message/count?accesstoken=${accesstoken}`)
       .toPromise()
   }
-  markAll() {
-  
+  markAll(params): Promise<any> {
+     return this.http.post(`${this.apiUrl}topic/${params.topic_id}/ups`, {
+      accesstoken: params.accesstoken
+    }).toPromise();
   }
 }

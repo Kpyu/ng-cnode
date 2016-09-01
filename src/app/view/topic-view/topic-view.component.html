@@ -1,17 +1,21 @@
 <div>
     <div class="topic-header">
     	<h3>{{topic.title}}</h3>
-      <div class="right">
-        <p class="tab top"> tabToName(topic.tab)</p>
+      <div class="right" >
+        <p class="tab top">{{topic|articleType}}</p>
         <p>{{topic.visit_count}}次浏览</p>
       </div>
-      <!--<vuserpanel :avatar="topic.author.avatar_url">
-        <p slot="one">{{topic.author.loginname}}</p>
-        <p slot="two">发布时间：{{topic.create_at | getLastTimeStr true}}</p>
-      </vuserpanel>-->
+
+      	<div class="userPanel">
+          <img *ngIf="topic.author" [src]="topic.author.avatar_url" alt="" />
+          <div>
+            <p [routerLink]="['/perinfo', topic.author.loginname]" *ngIf="topic.author">{{topic.author.loginname}}</p>
+            <p>{{topic.create_at | date:'yyyy-MM-dd hh:mm:ss'}}</p>
+          </div>
+        </div>
     </div>
     <div class="topic-content" [innerHTML]="topic.content"></div>
-    <!--<vreplylist replies="topic.replies" topic-id="topic.id" :accesstoken="accesstoken" :loginname="loginname"></vreplylist>-->
+    <app-reply-list *ngIf="topic.replies" [replyList]="topic.replies"></app-reply-list>
     <div>
       <form class="reply-form">
         <textarea></textarea>

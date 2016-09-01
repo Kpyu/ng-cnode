@@ -1,5 +1,4 @@
 
-
 <div id="app" [ngClass]="{ 'offcanvas-page': isShowNavbar,
                            'show-offcanvas': isShowNavbar}">
     <app-nav-bar [isShowNavbar]="isShowNavbar" [isLogin]="isLogin" (onNavigate)="onNavigate($event)" (onToggle)="onToggle($event)"></app-nav-bar>
@@ -9,9 +8,6 @@
         <router-outlet  (activate)="onActivate($event)"></router-outlet> 
       </div>
     </main>
-    <!--<vconfirm :is-show-confirm.sync="isShowConfirm" :is-show-sidebar.sync="isShowSidebar" :is-login.sync="isLogin">
-      <h3 slot="body">确认注销当前账号吗？</h3>
-    </vconfirm>-->
   </div>
 
 
