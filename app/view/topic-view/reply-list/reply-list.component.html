@@ -1,0 +1,34 @@
+<div class="reply-list">
+  	<div class="header">
+    	<h4>评论 已有<span> {{replyList.length}} </span>回复</h4>
+  	</div>
+  	<!---->
+    <ul>
+  		<li *ngFor="let reply of replyList">
+  			<div class="user">
+          <div class="right">
+          	<div class="like-btn">
+          		<i class="iconfont">&#xe60a;</i>{{reply.ups.length}}
+          	</div>
+          	<div class="reply-btn">
+          		<i class="iconfont">&#xe60b;</i>
+          	</div>
+          </div>
+          <div class="userPanel">
+            <img style="width:44px;" [src]="reply.author.avatar_url" alt="" />
+            <div>
+              <p [routerLink]="['/perinfo', reply.author.loginname]" *ngIf="reply.author">{{reply.author.loginname}}</p>
+              <p>{{reply.create_at | date:'yyyy-MM-dd hh:mm:ss'}}</p>
+            </div>
+          </div>
+  			</div>
+  			<div class="reply-content" [innerHtml]="reply.content"></div>
+  			<!--<div class="reply-form">
+  				<form>
+            <textarea>{{reply.author.loginname}} </textarea>
+            <button type="submit">确定</button>    
+          </form>
+  			</div>-->
+  		</li>
+		</ul>
+	</div>
