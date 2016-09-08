@@ -17,9 +17,11 @@ export class AppComponent implements OnInit, OnDestroy {
   public isShowNavbar: boolean = false;
   public isShowConfirm: boolean = false;
   public isLogin: boolean;
+  public loginUserData: any;
   private accesstoken: string;
   public title: string = '全部';
   subscription: Subscription;
+  loginSubscript: Subscription;
   showConfirm() {
     this.isShowConfirm = !this.isShowConfirm;
   }
@@ -84,12 +86,22 @@ export class AppComponent implements OnInit, OnDestroy {
   }
   ngOnInit() {
     const self:AppComponent = this;
+    this.isLogin = JSON.parse(localStorage.getItem('loginUser')) && true;
+    debugger
+    this.loginUserData = JSON.parse(localStorage.getItem('loginUser'));
     this.subscription =  this.apiService.title$.subscribe( result=>{
       console.log(result);
       self.title = result;
     })
+    this.loginSubscript = this.apiService.login$.subscribe(result=>{
+      this.isLogin = true;
+      debugger
+      this.loginUserData = result;
+    })
+
   }
   ngOnDestroy() {
     this.subscription.unsubscribe();
+    this.loginSubscript.unsubscribe();
   }
 }

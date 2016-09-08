@@ -2,8 +2,8 @@
     <nav class="offcanvas-bar">
       <div class="user">
         <div *ngIf="isLogin">
-          <img [src]="avatarUrl" alt="">
-          <p>{{loginname}}</p>
+          <img [src]="loginUser.avatar_url" alt="">
+          <p>{{loginUser.loginname}}</p>
         </div>
         <a *ngIf="!isLogin" class="login" (click)="login($event)"  style="cursor:pointer"><i class="iconfont">&#xe604;</i>登录</a>
       </div>

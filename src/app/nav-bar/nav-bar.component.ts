@@ -11,10 +11,10 @@ export class NavBarComponent implements OnInit {
   public navSet: Array<any> = NAVS.navSet;
 
   public currentNav: string = NAVS.nav;
-  
 
   @Input() isShowNavbar: boolean;
   @Input() isLogin: boolean;
+  @Input() loginUser: any;
   @Output() onToggle = new EventEmitter<boolean>();
   @Output() onNavigate = new EventEmitter<string>();
   constructor(private router: Router,

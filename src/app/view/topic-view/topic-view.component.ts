@@ -25,9 +25,9 @@ export class TopicViewComponent implements OnInit, OnDestroy {
     let self: TopicViewComponent = this;
     let params:any = {};
     self.sub = this.route.params.subscribe(params => {
-       let topId:string = params['id'];
+       let topicId:string = params['id'];
        self.api.getTopic({
-         topId: topId,
+         topicId: topicId,
          mdrender: null,
          accesstoken:null
         }).then(result=>{

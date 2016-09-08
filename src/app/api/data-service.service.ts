@@ -5,23 +5,31 @@ import { Subject }    from 'rxjs/Subject';
 
 
 const sub = new Subject<string>();
-
+const loginSub = new Subject<any>()
 @Injectable()
 export class DataServiceService {
   private apiUrl:string = 'https://cnodejs.org/api/v1/';  // URL to web api
   public titleSource;
   public title$;
+  public loginSource;
+  public login$;
     // Observable string streams
   constructor(private http: Http) { 
     console.log('调用api服务');
     this.titleSource = sub;
     this.title$ = this.titleSource.asObservable();
+    this.loginSource = loginSub;
+    this.login$ = this.loginSource.asObservable();
   }
 
   changeTitle(title: string) {
     this.titleSource.next(title);
   }
-
+  
+  checkLogin(loginUser:any){
+    this.loginSource.next(loginUser);
+  }
+  
   handleError(error) {
     console.error(error);
   }
@@ -30,8 +38,7 @@ export class DataServiceService {
       &limit=${params.limit}&tab=${params.tab}&mdrender=${params.mdrender||''}`).toPromise();
   }
   getTopic(params:any) : Promise<any>{
-    return this.http.get(`${this.apiUrl}topic/${params.topicId}?mdrender=${params.mdrender || ''}
-    ?accesstoken=${params.accesstoken}`).toPromise();
+    return this.http.get(`${this.apiUrl}topic/${params.topicId}?mdrender=${params.mdrender||''}&accesstoken=${params.accesstoken||''}`).toPromise();
   }
   newTopic(params: any) : Promise<any> {
     return this.http.post(`${this.apiUrl}topics`, {
@@ -70,9 +77,8 @@ export class DataServiceService {
     return this.http.get(`${this.apiUrl}user/${params.loginname}`).toPromise();
   }
   validateAccessToken(params): Promise<any> {
-     return this.http.post(`${this.apiUrl}topic/${params.topic_id}/ups`, {
-      accesstoken: params.accesstoken
-    }).toPromise();
+    console.log('校验登录');
+     return this.http.post(`${this.apiUrl}accesstoken`, params).toPromise();
   }
   getMessage(params): Promise<any> {
     return this.http.get(`${this.apiUrl}topic_collect/${params.loginname}`).toPromise();
