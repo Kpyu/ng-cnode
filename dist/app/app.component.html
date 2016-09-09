@@ -1,0 +1,14 @@
+
+<div id="app" [ngClass]="{ 'offcanvas-page': isShowNavbar,
+                           'show-offcanvas': isShowNavbar}">
+    <app-nav-bar [isShowNavbar]="isShowNavbar" [isLogin]="isLogin" [loginUser] = "loginUserData" (onNavigate)="onNavigate($event)" (onToggle)="onToggle($event)"></app-nav-bar>
+    <main>
+      <app-header-bar [isShowNavbar]="isShowNavbar" [title]="title"  (onToggle)="onToggle($event)"></app-header-bar>
+      <div id="content">
+        <router-outlet  (activate)="onActivate($event)"></router-outlet> 
+      </div>
+    </main>
+  </div>
+
+
+

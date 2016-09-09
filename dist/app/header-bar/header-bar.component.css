@@ -1,0 +1,40 @@
+header {
+    background-color: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.25);
+    line-height: 44px;
+    position: fixed;
+    left: 0;
+    right: 0;
+    transform: translateZ(0px);
+    z-index: 999
+  }
+  
+  header h2 {
+    text-align: center;
+    font-size: 16px;
+    margin-bottom: 0;
+    line-height: 44px;
+    font-weight: 400
+  }
+  
+  .navbar-toggle {
+    float: left;
+    cursor: pointer;
+
+  }
+  
+  header .iconfont {
+    padding: 14px;
+  }
+  
+  .send-btn {
+    float: right;
+    color: #42b983;
+    cursor: pointer;
+    vertical-align: bottom;
+  }
+  .send-btn i{
+    font-size: 22px;
+    padding-top: 11px;
+    padding-bottom: 11px;
+  }
