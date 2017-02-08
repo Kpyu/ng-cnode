@@ -2,14 +2,11 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { DataServiceService } from '../../api/data-service.service';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Subscription } from 'rxjs/Subscription';
-import { ReplyListComponent } from './reply-list'
 @Component({
-  moduleId: module.id,
   selector: 'app-topic-view',
   templateUrl: 'topic-view.component.html',
   providers: [DataServiceService],
-  styleUrls: ['topic-view.component.css'],
-  directives:[ReplyListComponent]
+  styleUrls: ['topic-view.component.css']
 })
 export class TopicViewComponent implements OnInit, OnDestroy {
   public title:string="";

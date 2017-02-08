@@ -1,4 +1,8 @@
-import { Routes, RouterModule } from '@angular/router';
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule }   from '@angular/forms';
+
+import { RouterModule, Routes } from '@angular/router';
 import { ViewListComponent } from './view/view-list';
 import { AboutViewComponent } from './view/about-view';
 import { LoginViewComponent } from './view/login-view';
@@ -6,6 +10,8 @@ import { PersonalInfoViewComponent } from './view/personal-info-view';
 import { TopicViewComponent } from './view/topic-view';
 import { TopicNewViewComponent } from './view/topic-new-view';
 import { MessageViewComponent } from './view/message-view';
+import { ReplyListComponent } from './view/topic-view/reply-list'
+import { ArticleTypePipe } from './view/pipes/article-type.pipe'
 
 const appRoutes: Routes = [
   {
@@ -46,3 +52,24 @@ const appRoutes: Routes = [
   }
 ];
 export const routing:any = RouterModule.forRoot(appRoutes);
+
+@NgModule({
+  imports: [
+    FormsModule,
+    BrowserModule,
+    RouterModule.forRoot(appRoutes)
+  ],
+  declarations: [
+    ViewListComponent, 
+    AboutViewComponent,
+    LoginViewComponent,
+    PersonalInfoViewComponent,
+    TopicViewComponent,
+    TopicNewViewComponent,
+    MessageViewComponent,
+    ReplyListComponent,
+    ArticleTypePipe
+  ],
+  exports: [RouterModule],
+})
+export class AppRoutingModule { }
