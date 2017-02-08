@@ -4,7 +4,7 @@ This project was generated with [angular-cli](https://github.com/angular/angular
 
 ---
 
-访问地址：https://kpyu.github.io/ng-noder/ [demo link](https://kpyu.github.io/ng-noder/)
+访问地址：https://kpyu.github.io/ng-cnode/ [demo link](https://kpyu.github.io/ng-cnode/)
 
 ## Development server
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
