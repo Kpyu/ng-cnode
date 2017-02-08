@@ -8,6 +8,7 @@ import { HttpModule }     from '@angular/http';
 import { routing }        from './app.routing';
 import { ArticleTypePipe } from './view/pipes/article-type.pipe'
 import { DataServiceService }  from './api/data-service.service';
+import { TestComponent } from './test/test.component';
 
 @NgModule({
   imports: [
@@ -20,8 +21,9 @@ import { DataServiceService }  from './api/data-service.service';
     ArticleTypePipe,
     NavBarComponent,
     HeaderBarComponent,
-    AppComponent,
-  ],
+    AppComponent,,
+    TestComponent
+],
   providers: [
     DataServiceService
   ],

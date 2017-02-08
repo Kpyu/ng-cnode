@@ -9,9 +9,7 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
 })
 export class NavBarComponent implements OnInit {
   public navSet: Array<any> = NAVS.navSet;
-
   public currentNav: string = NAVS.nav;
-
   @Input() isShowNavbar: boolean;
   @Input() isLogin: boolean;
   @Input() loginUser: any;
