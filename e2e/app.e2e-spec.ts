@@ -1,10 +1,10 @@
-import { NgNoderPage } from './app.po';
+import { NgCnodePage } from './app.po';
 
-describe('ng-noder App', function() {
-  let page: NgNoderPage;
+describe('ng-cnode App', function() {
+  let page: NgCnodePage;
 
   beforeEach(() => {
-    page = new NgNoderPage();
+    page = new NgCnodePage();
   });
 
   it('should display message saying app works', () => {

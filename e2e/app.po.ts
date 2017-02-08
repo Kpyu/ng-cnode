@@ -1,4 +1,6 @@
-export class NgNoderPage {
+import { browser, element, by } from 'protractor';
+
+export class NgCnodePage {
   navigateTo() {
     return browser.get('/');
   }
