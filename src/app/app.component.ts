@@ -105,4 +105,3 @@ export class AppComponent implements OnInit, OnDestroy {
     this.loginSubscript.unsubscribe();
   }
 }
-

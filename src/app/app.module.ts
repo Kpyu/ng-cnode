@@ -30,4 +30,3 @@ import { TestComponent } from './test/test.component';
   bootstrap: [ AppComponent ]
 })
 export class AppModule { }
-
