@@ -16,37 +16,37 @@ import { ArticleTypePipe } from './view/pipes/article-type.pipe'
 const appRoutes: Routes = [
   {
     path: '',
-    redirectTo: 'ng-cnode/list/all',
+    redirectTo: 'list/all',
     pathMatch: 'full'
   },
   {
-    path: 'ng-cnode/list/:tab',
+    path: 'list/:tab',
     component: ViewListComponent
   },
   {
-    path: 'ng-cnode/topic/:id',
+    path: 'topic/:id',
     component: TopicViewComponent
   },
   {
-    path: 'ng-cnode/message',
+    path: 'message',
     component: MessageViewComponent
   },
   {
-    path: 'ng-cnode/about',
+    path: 'about',
     pathMatch: 'full',
     component: AboutViewComponent
   },
   {
-    path: 'ng-cnode/perinfo/:loginname',
+    path: 'perinfo/:loginname',
     component: PersonalInfoViewComponent
   },
   {
-    path: 'ng-cnode/login',
+    path: 'login',
     pathMatch: 'prefix',
     component: LoginViewComponent
   },
   {
-    path: 'ng-cnode/newtopic',
+    path: 'newtopic',
     pathMatch: 'prefix',
     component: TopicNewViewComponent
   }
