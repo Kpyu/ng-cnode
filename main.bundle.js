@@ -380,37 +380,37 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var appRoutes = [
     {
         path: '',
-        redirectTo: 'ng-cnode/list/all',
+        redirectTo: 'list/all',
         pathMatch: 'full'
     },
     {
-        path: 'ng-cnode/list/:tab',
+        path: 'list/:tab',
         component: __WEBPACK_IMPORTED_MODULE_4__view_view_list__["a" /* ViewListComponent */]
     },
     {
-        path: 'ng-cnode/topic/:id',
+        path: 'topic/:id',
         component: __WEBPACK_IMPORTED_MODULE_8__view_topic_view__["a" /* TopicViewComponent */]
     },
     {
-        path: 'ng-cnode/message',
+        path: 'message',
         component: __WEBPACK_IMPORTED_MODULE_10__view_message_view__["a" /* MessageViewComponent */]
     },
     {
-        path: 'ng-cnode/about',
+        path: 'about',
         pathMatch: 'full',
         component: __WEBPACK_IMPORTED_MODULE_5__view_about_view__["a" /* AboutViewComponent */]
     },
     {
-        path: 'ng-cnode/perinfo/:loginname',
+        path: 'perinfo/:loginname',
         component: __WEBPACK_IMPORTED_MODULE_7__view_personal_info_view__["a" /* PersonalInfoViewComponent */]
     },
     {
-        path: 'ng-cnode/login',
+        path: 'login',
         pathMatch: 'prefix',
         component: __WEBPACK_IMPORTED_MODULE_6__view_login_view__["a" /* LoginViewComponent */]
     },
     {
-        path: 'ng-cnode/newtopic',
+        path: 'newtopic',
         pathMatch: 'prefix',
         component: __WEBPACK_IMPORTED_MODULE_9__view_topic_new_view__["a" /* TopicNewViewComponent */]
     }
